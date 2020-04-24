@@ -481,6 +481,26 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:test.Controllers.CartController.getAmountOfProductUserCart(System.Int32)">
+            <summary>
+            Trả về trả về số lượng cart của user
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartController.getAmountOfProductUserCartAndIsPaid(System.Int32,System.Int32)">
+            <summary>
+            Trả về trả về số lượng cart của user và theo tình trạng isPaid
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.getListCartOfUser(System.Int32,System.Int32)">
+            <summary>
+            Trả về tất cả product trong giỏ hàng của user theo tình trạng
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CategoryController.getAllProduct">
+            <summary>
+            Trả về toàn bộ Category
+            </summary>
+        </member>
         <member name="M:test.Controllers.ProductController.getAllProduct">
             <summary>
             Trả về toàn bộ product
@@ -497,26 +517,6 @@
             </summary>
         </member>
         <member name="M:test.Controllers.ProductController.getAmountProductByIdCategory(System.Int32)">
-            <summary>
-            Trả về số lượng product theo loại category
-            </summary>
-        </member>
-        <member name="M:test.Controllers.testController.getAllProduct">
-            <summary>
-            Trả về toàn bộ product
-            </summary>
-        </member>
-        <member name="M:test.Controllers.testController.getProductById(System.Int32)">
-            <summary>
-            Trả về một product với id 
-            </summary>
-        </member>
-        <member name="M:test.Controllers.testController.getAllProductByIdCategory(System.Int32)">
-            <summary>
-            Trả về tất cả product theo loại category
-            </summary>
-        </member>
-        <member name="M:test.Controllers.testController.getAmountProductByIdCategory(System.Int32)">
             <summary>
             Trả về số lượng product theo loại category
             </summary>

@@ -136,6 +136,10 @@
     <FunctionImport Name="returnAmountOfProductByIdCategory" ReturnType="Collection(Int32)">
       <Parameter Name="id" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="returnListCartOfUser" ReturnType="Collection(STUDY_SHOPModel.returnListCartOfUser_Result)">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+      <Parameter Name="isPaid" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="returnAllProducts_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
@@ -146,5 +150,14 @@
     <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
     <Property Type="String" Name="Information" Nullable="true" MaxLength="2000" />
     <Property Type="String" Name="Image" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="returnListCartOfUser_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+    <Property Type="Int32" Name="Discount" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="Information" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="Image" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
   </ComplexType>
 </Schema>

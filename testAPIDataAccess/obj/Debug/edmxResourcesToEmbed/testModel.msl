@@ -75,5 +75,18 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="returnAmountOfProductByIdCategory" FunctionName="STUDY_SHOPModel.Store.returnAmountOfProductByIdCategory" />
+    <FunctionImportMapping FunctionImportName="returnListCartOfUser" FunctionName="STUDY_SHOPModel.Store.returnListCartOfUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="STUDY_SHOPModel.returnListCartOfUser_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -111,6 +111,10 @@
         <Function Name="returnAmountOfProductByIdCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="returnListCartOfUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="isPaid" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="STUDY_SHOPModelStoreContainer">
           <EntitySet Name="CartItems" EntityType="Self.CartItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
@@ -274,6 +278,10 @@
           <FunctionImport Name="returnAmountOfProductByIdCategory" ReturnType="Collection(Int32)">
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="returnListCartOfUser" ReturnType="Collection(STUDY_SHOPModel.returnListCartOfUser_Result)">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="isPaid" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="returnAllProducts_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -284,6 +292,15 @@
           <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="Information" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="Image" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="returnListCartOfUser_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+          <Property Type="Double" Name="Price" Nullable="true" />
+          <Property Type="Int32" Name="Discount" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="Information" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -365,6 +382,19 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="returnAmountOfProductByIdCategory" FunctionName="STUDY_SHOPModel.Store.returnAmountOfProductByIdCategory" />
+          <FunctionImportMapping FunctionImportName="returnListCartOfUser" FunctionName="STUDY_SHOPModel.Store.returnListCartOfUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="STUDY_SHOPModel.returnListCartOfUser_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

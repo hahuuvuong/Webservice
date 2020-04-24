@@ -91,3 +91,8 @@ c:\users\admin\documents\visual studio 2015\Projects\test\test\obj\Debug\test.cs
 c:\users\admin\documents\visual studio 2015\Projects\test\test\obj\Debug\test.dll
 c:\users\admin\documents\visual studio 2015\Projects\test\test\obj\Debug\test.pdb
 C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\test\test\bin\XmlDocument.xml
+C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\test\test\bin\Microsoft.Azure.AppService.ApiApps.Service.dll
+C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\test\test\bin\Swashbuckle.Core.dll
+C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\test\test\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\test\test\bin\WebActivatorEx.dll
+C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\test\test\bin\System.IdentityModel.Tokens.Jwt.xml

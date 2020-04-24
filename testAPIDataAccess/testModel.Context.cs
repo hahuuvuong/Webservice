@@ -46,5 +46,18 @@ namespace testAPIDataAccess
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("returnAmountOfProductByIdCategory", idParameter);
         }
+    
+        public virtual ObjectResult<returnListCartOfUser_Result> returnListCartOfUser(Nullable<int> userID, Nullable<int> isPaid)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("userID", userID) :
+                new ObjectParameter("userID", typeof(int));
+    
+            var isPaidParameter = isPaid.HasValue ?
+                new ObjectParameter("isPaid", isPaid) :
+                new ObjectParameter("isPaid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<returnListCartOfUser_Result>("returnListCartOfUser", userIDParameter, isPaidParameter);
+        }
     }
 }

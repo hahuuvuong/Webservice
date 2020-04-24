@@ -71,6 +71,9 @@
     <Compile Include="returnAllProducts_Result.cs">
       <DependentUpon>testModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="returnListCartOfUser_Result.cs">
+      <DependentUpon>testModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="testModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
