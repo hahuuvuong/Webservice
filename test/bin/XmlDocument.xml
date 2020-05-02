@@ -521,5 +521,20 @@
             Trả về số lượng product theo loại category
             </summary>
         </member>
+        <member name="M:test.Controllers.ProductController.Post(testAPIDataAccess.Product)">
+            <summary>
+            Post thêm mới một product
+            </summary>
+        </member>
+        <member name="M:test.Controllers.ProductController.Put(System.Int32,testAPIDataAccess.Product)">
+            <summary>
+            put thay đổi một product thông qua id
+            </summary>
+        </member>
+        <member name="M:test.Controllers.ProductController.Delete(System.Int32)">
+            <summary>
+            delete xóa một product thông qua id
+            </summary>
+        </member>
     </members>
 </doc>

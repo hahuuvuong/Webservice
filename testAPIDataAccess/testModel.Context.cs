@@ -20,6 +20,7 @@ namespace testAPIDataAccess
         public STUDY_SHOPEntities()
             : base("name=STUDY_SHOPEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

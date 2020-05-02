@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STUDY_SHOPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CartItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UnitPrice" Type="float" />
+    <Property Name="ProId" Type="int" Nullable="false" />
+    <Property Name="CartId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Carts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="BuyDate" Type="date" />
+    <Property Name="IsPaid" Type="int" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CateId" />
+    </Key>
+    <Property Name="CateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CateName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CateImage" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Discount" Type="int" />
+    <Property Name="CateId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Information" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="11" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="36" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CartItems__CartI__1BFD2C07">
+    <End Role="Carts" Type="Self.Carts" Multiplicity="1" />
+    <End Role="CartItems" Type="Self.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="CartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CartItems__ProId__1B0907CE">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="CartItems" Type="Self.CartItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CartItems">
+        <PropertyRef Name="ProId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carts__UserId__182C9B23">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__CateId__15502E78">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CateId" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="returnAllProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="returnAmountOfProductByIdCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="returnListCartOfUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+    <Parameter Name="isPaid" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="STUDY_SHOPModelStoreContainer">
+    <EntitySet Name="CartItems" EntityType="Self.CartItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CartItems__CartI__1BFD2C07" Association="Self.FK__CartItems__CartI__1BFD2C07">
+      <End Role="Carts" EntitySet="Carts" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CartItems__ProId__1B0907CE" Association="Self.FK__CartItems__ProId__1B0907CE">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="CartItems" EntitySet="CartItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carts__UserId__182C9B23" Association="Self.FK__Carts__UserId__182C9B23">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__CateId__15502E78" Association="Self.FK__Products__CateId__15502E78">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

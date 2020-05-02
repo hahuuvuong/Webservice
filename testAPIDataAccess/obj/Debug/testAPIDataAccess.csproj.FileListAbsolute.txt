@@ -19,4 +19,4 @@ c:\Users\ADMIN\documents\visual studio 2015\Projects\test\testAPIDataAccess\bin\
 c:\Users\ADMIN\documents\visual studio 2015\Projects\test\testAPIDataAccess\bin\Debug\ru\DevExpress.Xpo.v16.1.resources.dll
 c:\Users\ADMIN\documents\visual studio 2015\Projects\test\testAPIDataAccess\obj\Debug\testAPIDataAccess.dll
 c:\Users\ADMIN\documents\visual studio 2015\Projects\test\testAPIDataAccess\obj\Debug\testAPIDataAccess.pdb
-C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\test\testAPIDataAccess\obj\Debug\testAPIDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\documents\visual studio 2015\Projects\test\testAPIDataAccess\obj\Debug\testAPIDataAccess.csprojResolveAssemblyReference.cache
