@@ -11,7 +11,51 @@ namespace test.Controllers
     public class CartController : ApiController
     {
         /// <summary>
-        /// Trả về trả về số lượng cart của user
+        /// Trả về tất cả cart trong database
+        /// </summary>
+        [HttpGet]
+        public IEnumerable<Cart> getAllCart()
+        {
+            using (STUDY_SHOPEntities entity = new STUDY_SHOPEntities())
+            {
+                return entity.Carts.ToList();
+            }
+        }
+        /// <summary>
+        /// Trả về số lượng cart của user và theo tình trạng isPaid
+        /// </summary>
+        [HttpGet]
+        public int getSoluongOfProductUserCartAndIsPaid(int userID1, int isPaid)
+        {
+            using (STUDY_SHOPEntities entity = new STUDY_SHOPEntities())
+            {
+                return entity.Carts.Where(x => x.UserId == userID1 && x.IsPaid == isPaid).Count();
+            }
+        }
+        /// <summary>
+        /// Trả về số lượng cart của user và theo tình trạng isPaid
+        /// </summary>
+        [HttpGet]
+        public IEnumerable<Cart> getCartByCartID(int cartID)
+        {
+            using (STUDY_SHOPEntities entity = new STUDY_SHOPEntities())
+            {
+                return entity.Carts.Where(x => x.Id == cartID ).ToList();
+            }
+        }
+        /// <summary>
+        /// Trả về tất cả cart của một user
+        /// </summary>
+        [HttpGet]
+        public IEnumerable<Cart> getAllProductUserCartd(int userID3)
+        {
+            using (STUDY_SHOPEntities entity = new STUDY_SHOPEntities())
+            {
+                return entity.Carts.Where(x => x.UserId == userID3 ).ToList();
+            }
+        }
+        /// <summary>
+        /// Trả về số lượng cart của user
         /// </summary>
         [HttpGet]
         public int getAmountOfProductUserCart(int userID)
@@ -21,27 +65,57 @@ namespace test.Controllers
                 return entity.Carts.Where(x => x.UserId == userID).Count();
             }
         }
+        
         /// <summary>
-        /// Trả về trả về số lượng cart của user và theo tình trạng isPaid
+        /// Trả về trả về số lượng cart của user và theo tình trạng isPaid, chỗ này hình như không cân thiết
         /// </summary>
         [HttpGet]
-        public int getAmountOfProductUserCartAndIsPaid(int userID, int isPaid)
+        public List<Cart> getAllProductOfUserCartAndisPaid(int userID2, int ispaid)
         {
             using (STUDY_SHOPEntities entity = new STUDY_SHOPEntities())
             {
-                return entity.Carts.Where(x => x.UserId == userID && x.IsPaid == isPaid).Count();
+                return entity.Carts.Where(x => x.UserId == userID2 && x.IsPaid == ispaid).ToList();
             }
         }
         /// <summary>
-        /// Trả về trả về số lượng cart của user và theo tình trạng isPaid
+        /// put thay đổi trạng thái isPaid 
         /// </summary>
-        //[HttpGet]
-        //public int getamountofproductusercartandispaid(int userid, int ispaid)
-        //{
-        //    using (study_shopentities entity = new study_shopentities())
-        //    {
-        //        return entity.carts.where(x => x. == userid && x.ispaid == ispaid).count();
-        //    }
-        //}
+        [HttpPut]
+        public HttpResponseMessage PutChangeIsPaidCart(int idCart, int isPaid)
+        {
+            try
+            {
+                using (STUDY_SHOPEntities dbContext = new STUDY_SHOPEntities())
+                {
+                    var entity = dbContext.Carts.FirstOrDefault(e => e.Id == idCart);
+                    if (entity == null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Không thể tim thấy cartitem với id = " + idCart.ToString());
+                    }
+                    else
+                    {
+                        entity.IsPaid = isPaid;
+                        dbContext.SaveChanges();
+                        return Request.CreateResponse(HttpStatusCode.OK, entity);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.ToString());
+            }
+        }
+        /// <summary>
+        /// Post thêm mới một cart
+        /// </summary>
+        [HttpPost]
+        public void Post([FromBody] Cart cart)
+        {
+            using (STUDY_SHOPEntities dbContext = new STUDY_SHOPEntities())
+            {
+                dbContext.Carts.Add(cart);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }
