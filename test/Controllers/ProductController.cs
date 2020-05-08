@@ -67,7 +67,7 @@ namespace test.Controllers
             return Listkqre.ToList();
         }
         /// <summary>
-        /// Trả về tất cả product theo loại category
+        /// Trả về các product mới nhất với số lượng mong muốn
         /// </summary>
         [HttpGet]
         public IEnumerable<Product> getNewestProduct(int amount)
