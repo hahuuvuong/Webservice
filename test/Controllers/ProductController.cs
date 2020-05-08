@@ -67,6 +67,34 @@ namespace test.Controllers
             return Listkqre.ToList();
         }
         /// <summary>
+        /// Trả về tất cả product theo loại category
+        /// </summary>
+        [HttpGet]
+        public IEnumerable<Product> getNewestProduct(int amount)
+        {
+            STUDY_SHOPEntities db = new STUDY_SHOPEntities();
+            List<Product> Listprore = db.Products.OrderByDescending(x=>x.Id).ToList();
+            List<Product> Listkqre = new List<Product>();
+            int i = 0;
+            foreach (Product k in Listprore)
+            {
+                Product p = new Product();
+                p.Id = k.Id;
+                p.Name = k.Name;
+                p.Price = k.Price;
+                p.Discount = k.Discount;
+                p.CateId = k.CateId;
+                p.Description = k.Description;
+                p.Information = k.Information;
+                p.Image = k.Image;
+                Listkqre.Add(p);
+                i++;
+                if(i==amount)
+                    return Listkqre.ToList();
+            }
+            return Listkqre.ToList();
+        }
+        /// <summary>
         /// Trả về số lượng product theo loại category
         /// </summary>
         [HttpGet]

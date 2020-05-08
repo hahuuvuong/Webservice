@@ -586,6 +586,11 @@
             Trả về tất cả product theo loại category
             </summary>
         </member>
+        <member name="M:test.Controllers.ProductController.getNewestProduct(System.Int32)">
+            <summary>
+            Trả về tất cả product theo loại category
+            </summary>
+        </member>
         <member name="M:test.Controllers.ProductController.getAmountProductByIdCategory(System.Int32)">
             <summary>
             Trả về số lượng product theo loại category
