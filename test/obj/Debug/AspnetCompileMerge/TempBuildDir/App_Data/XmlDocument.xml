@@ -481,19 +481,89 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:test.Controllers.CartController.getAmountOfProductUserCart(System.Int32)">
+        <member name="M:test.Controllers.CartController.getAllCart">
             <summary>
-            Trả về trả về số lượng cart của user
+            Trả về tất cả cart trong database
             </summary>
         </member>
-        <member name="M:test.Controllers.CartController.getAmountOfProductUserCartAndIsPaid(System.Int32,System.Int32)">
+        <member name="M:test.Controllers.CartController.getSoluongOfProductUserCartAndIsPaid(System.Int32,System.Int32)">
             <summary>
-            Trả về trả về số lượng cart của user và theo tình trạng isPaid
+            Trả về số lượng cart của user và theo tình trạng isPaid
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartController.getCartByCartID(System.Int32)">
+            <summary>
+            Trả về số lượng cart của user và theo tình trạng isPaid
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartController.getAllProductUserCartd(System.Int32)">
+            <summary>
+            Trả về tất cả cart của một user
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartController.getAmountOfProductUserCart(System.Int32)">
+            <summary>
+            Trả về số lượng cart của user
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartController.getAllProductOfUserCartAndisPaid(System.Int32,System.Int32)">
+            <summary>
+            Trả về trả về số lượng cart của user và theo tình trạng isPaid, chỗ này hình như không cân thiết
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartController.PutChangeIsPaidCart(System.Int32,System.Int32)">
+            <summary>
+            put thay đổi trạng thái isPaid 
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartController.Post(testAPIDataAccess.Cart)">
+            <summary>
+            Post thêm mới một cart
             </summary>
         </member>
         <member name="M:test.Controllers.CartItemController.getListCartOfUser(System.Int32,System.Int32)">
             <summary>
-            Trả về tất cả product trong giỏ hàng của user theo tình trạng
+            Trả về tất cả product trong giỏ hàng của user nào đó theo tình trạng
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.getCartitem(System.Int32)">
+            <summary>
+            Trả về cartitem bởi ID
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.getCartitemByCart(System.Int32)">
+            <summary>
+            Trả về cartitem bởi cartID (thông qua bảng carts)
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.PutIncreaseCartItem(System.Int32)">
+            <summary>
+            put thay đổi số lượng quantity lên 1 trong cartitem
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.Post(testAPIDataAccess.CartItem)">
+            <summary>
+            Post thêm mới một product vào cartitem của user { "Quantity": 2,"UnitPrice": 1,"ProId": 22,"CartId": 1}
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.DeleteByCartitemID(System.Int32)">
+            <summary>
+            delete xóa một product ra khỏi giỏ hàng của user
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.DeleteByUserIDAndProID(System.Int32,System.Int32)">
+            <summary>
+            delete xóa một product ra khỏi giỏ hàng của user bằng proid and userid
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.PutIncreaseCartItembyProidAndUserid(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            put thay đổi số lượng quantity lên 1 trong cartitem bằng proid và userid
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CartItemController.PutDecreaseCartItembyProidAndUserid(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            put thay đổi số lượng quantity xuống 1 đơn vị trong cartitem bằng proid và userid
             </summary>
         </member>
         <member name="M:test.Controllers.CategoryController.getAllProduct">
@@ -516,9 +586,44 @@
             Trả về tất cả product theo loại category
             </summary>
         </member>
+        <member name="M:test.Controllers.ProductController.getNewestProduct(System.Int32)">
+            <summary>
+            Trả về các product mới nhất với số lượng mong muốn
+            </summary>
+        </member>
         <member name="M:test.Controllers.ProductController.getAmountProductByIdCategory(System.Int32)">
             <summary>
             Trả về số lượng product theo loại category
+            </summary>
+        </member>
+        <member name="M:test.Controllers.ProductController.Post(testAPIDataAccess.Product)">
+            <summary>
+            Post thêm mới một product
+            </summary>
+        </member>
+        <member name="M:test.Controllers.ProductController.Put(System.Int32,testAPIDataAccess.Product)">
+            <summary>
+            put thay đổi một product thông qua id
+            </summary>
+        </member>
+        <member name="M:test.Controllers.ProductController.Delete(System.Int32)">
+            <summary>
+            delete xóa một product thông qua id
+            </summary>
+        </member>
+        <member name="M:test.Controllers.UserController.getAllUser">
+            <summary>
+            Trả về tất cả user trong database
+            </summary>
+        </member>
+        <member name="M:test.Controllers.UserController.getUserByEmail(System.String)">
+            <summary>
+            Trả về user bằng email
+            </summary>
+        </member>
+        <member name="M:test.Controllers.UserController.Post(testAPIDataAccess.User)">
+            <summary>
+            Post thêm mới một user
             </summary>
         </member>
     </members>

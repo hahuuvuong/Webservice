@@ -566,9 +566,14 @@
             put thay đổi số lượng quantity xuống 1 đơn vị trong cartitem bằng proid và userid
             </summary>
         </member>
-        <member name="M:test.Controllers.CategoryController.getAllProduct">
+        <member name="M:test.Controllers.CategoryController.getAllCategory">
             <summary>
             Trả về toàn bộ Category
+            </summary>
+        </member>
+        <member name="M:test.Controllers.CategoryController.getAmountOfPageCategory(System.Int32)">
+            <summary>
+            Trả về số lượng trang của từng lọai
             </summary>
         </member>
         <member name="M:test.Controllers.ProductController.getAllProduct">
@@ -588,7 +593,12 @@
         </member>
         <member name="M:test.Controllers.ProductController.getNewestProduct(System.Int32)">
             <summary>
-            Trả về tất cả product theo loại category
+            Trả về các product mới nhất với số lượng mong muốn
+            </summary>
+        </member>
+        <member name="M:test.Controllers.ProductController.get8ProductByIdCategoryAndPage(System.Int32,System.Int32)">
+            <summary>
+            Trả về các product theo từng trang với số lượng 8 và theo loại
             </summary>
         </member>
         <member name="M:test.Controllers.ProductController.getAmountProductByIdCategory(System.Int32)">

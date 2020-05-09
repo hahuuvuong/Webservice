@@ -95,6 +95,35 @@ namespace test.Controllers
             return Listkqre.ToList();
         }
         /// <summary>
+        /// Trả về các product theo từng trang với số lượng 8 và theo loại
+        /// </summary>
+        [HttpGet]
+        public IEnumerable<Product> get8ProductByIdCategoryAndPage(int idCategory, int page)
+        {
+            STUDY_SHOPEntities db = new STUDY_SHOPEntities();
+            List<Product> Listprore = db.Products.Where(x => x.Category.CateId == idCategory).OrderByDescending(x => x.Id).ToList();
+            List<Product> Listkqre = new List<Product>();
+            int i = 0;
+            foreach (Product k in Listprore)
+            {
+                if ((page-1)*8 <= i && page*8 > i)
+                {
+                    Product p = new Product();
+                    p.Id = k.Id;
+                    p.Name = k.Name;
+                    p.Price = k.Price;
+                    p.Discount = k.Discount;
+                    p.CateId = k.CateId;
+                    p.Description = k.Description;
+                    p.Information = k.Information;
+                    p.Image = k.Image;
+                    Listkqre.Add(p);
+                }
+                i++;
+            }
+            return Listkqre.ToList();
+        }
+        /// <summary>
         /// Trả về số lượng product theo loại category
         /// </summary>
         [HttpGet]
